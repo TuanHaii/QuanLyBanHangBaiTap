@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 using QuanLyBanHang.Data;
 
 namespace QuanLyBanHang.Forms
@@ -10,18 +11,7 @@ namespace QuanLyBanHang.Forms
     {
         QLBHDbContext context = new QLBHDbContext();
         int hoaDonID = 0; // 0 = thêm mới, > 0 = sửa
-        List<ChiTietTamThoi> danhSachChiTiet = new List<ChiTietTamThoi>();
-
-        // Class tạm để hiển thị trên DataGridView
-        private class ChiTietTamThoi
-        {
-            public int ID { get; set; }
-            public int SanPhamID { get; set; }
-            public string TenSanPham { get; set; }
-            public int DonGiaBan { get; set; }
-            public short SoLuongBan { get; set; }
-            public long ThanhTien => (long)DonGiaBan * SoLuongBan;
-        }
+        List<HoaDon_ChiTiet> danhSachChiTiet = new List<HoaDon_ChiTiet>();
 
         public frmHoaDonChiTiet()
         {
@@ -61,16 +51,11 @@ namespace QuanLyBanHang.Forms
                     cboKhachHang.SelectedValue = hd.KhachHangID;
                     txtGhiChuHoaDon.Text = hd.GhiChuHoaDon;
 
+                    // Include SanPham để TenSanPham và ThanhTien [NotMapped] hoạt động
                     danhSachChiTiet = context.HoaDon_ChiTiet
+                        .Include(ct => ct.SanPham)
                         .Where(ct => ct.HoaDonID == hoaDonID)
-                        .Select(ct => new ChiTietTamThoi
-                        {
-                            ID = ct.ID,
-                            SanPhamID = ct.SanPhamID,
-                            TenSanPham = ct.SanPham.TenSanPham,
-                            DonGiaBan = ct.DonGiaBan,
-                            SoLuongBan = ct.SoLuongBan
-                        }).ToList();
+                        .ToList();
                 }
             }
 
@@ -101,7 +86,7 @@ namespace QuanLyBanHang.Forms
             }
 
             // Kiểm tra sản phẩm đã có trong danh sách chưa
-            ChiTietTamThoi existing = danhSachChiTiet.FirstOrDefault(ct => ct.SanPhamID == sp.ID);
+            HoaDon_ChiTiet existing = danhSachChiTiet.FirstOrDefault(ct => ct.SanPhamID == sp.ID);
             if (existing != null)
             {
                 existing.SoLuongBan += (short)numSoLuongBan.Value;
@@ -109,10 +94,10 @@ namespace QuanLyBanHang.Forms
             }
             else
             {
-                danhSachChiTiet.Add(new ChiTietTamThoi
+                danhSachChiTiet.Add(new HoaDon_ChiTiet
                 {
                     SanPhamID = sp.ID,
-                    TenSanPham = sp.TenSanPham,
+                    SanPham = sp,   // gán navigation property -> TenSanPham, ThanhTien tự tính
                     DonGiaBan = (int)numDonGiaBan.Value,
                     SoLuongBan = (short)numSoLuongBan.Value
                 });
@@ -136,7 +121,7 @@ namespace QuanLyBanHang.Forms
         private void dgvChiTietHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.RowIndex >= danhSachChiTiet.Count) return;
-            ChiTietTamThoi ct = danhSachChiTiet[e.RowIndex];
+            HoaDon_ChiTiet ct = danhSachChiTiet[e.RowIndex];
             cboSanPham.SelectedValue = ct.SanPhamID;
             numDonGiaBan.Value = ct.DonGiaBan;
             numSoLuongBan.Value = ct.SoLuongBan;
@@ -168,7 +153,7 @@ namespace QuanLyBanHang.Forms
                 context.HoaDon.Add(hd);
                 context.SaveChanges();
 
-                foreach (ChiTietTamThoi ct in danhSachChiTiet)
+                foreach (HoaDon_ChiTiet ct in danhSachChiTiet)
                 {
                     context.HoaDon_ChiTiet.Add(new HoaDon_ChiTiet
                     {
@@ -198,7 +183,7 @@ namespace QuanLyBanHang.Forms
                         .Where(ct => ct.HoaDonID == hoaDonID).ToList();
                     context.HoaDon_ChiTiet.RemoveRange(chiTietCu);
 
-                    foreach (ChiTietTamThoi ct in danhSachChiTiet)
+                    foreach (HoaDon_ChiTiet ct in danhSachChiTiet)
                     {
                         context.HoaDon_ChiTiet.Add(new HoaDon_ChiTiet
                         {
