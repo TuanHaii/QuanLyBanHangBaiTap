@@ -51,9 +51,9 @@
             btnHuyBo = new Button();
             btnThoat = new Button();
             dataGridView = new DataGridView();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnTimKiem = new Button();
+            btnNhap = new Button();
+            btnXuat = new Button();
             groupBoxThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericSoLuong).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbHinhAnh).BeginInit();
@@ -279,42 +279,44 @@
             dataGridView.Size = new Size(820, 236);
             dataGridView.TabIndex = 8;
             // 
-            // button1
+            // btnTimKiem
             // 
-            button1.Location = new Point(568, 205);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 25);
-            button1.TabIndex = 7;
-            button1.Text = "Tìm kiếm";
-            button1.UseVisualStyleBackColor = true;
+            btnTimKiem.Location = new Point(568, 205);
+            btnTimKiem.Name = "btnTimKiem";
+            btnTimKiem.Size = new Size(75, 25);
+            btnTimKiem.TabIndex = 7;
+            btnTimKiem.Text = "Tìm kiếm";
+            btnTimKiem.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnNhap
             // 
-            button2.Location = new Point(662, 205);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 25);
-            button2.TabIndex = 7;
-            button2.Text = "Nhập..";
-            button2.UseVisualStyleBackColor = true;
+            btnNhap.Location = new Point(662, 205);
+            btnNhap.Name = "btnNhap";
+            btnNhap.Size = new Size(75, 25);
+            btnNhap.TabIndex = 7;
+            btnNhap.Text = "Nhập..";
+            btnNhap.UseVisualStyleBackColor = true;
+            btnNhap.Click += btnNhap_Click;
             // 
-            // button3
+            // btnXuat
             // 
-            button3.Location = new Point(757, 203);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 25);
-            button3.TabIndex = 9;
-            button3.Text = "Xuất..";
-            button3.UseVisualStyleBackColor = true;
+            btnXuat.Location = new Point(757, 203);
+            btnXuat.Name = "btnXuat";
+            btnXuat.Size = new Size(75, 25);
+            btnXuat.TabIndex = 9;
+            btnXuat.Text = "Xuất..";
+            btnXuat.UseVisualStyleBackColor = true;
+            btnXuat.Click += btnXuat_Click;
             // 
             // frmSanPham
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(853, 583);
-            Controls.Add(button3);
+            Controls.Add(btnXuat);
             Controls.Add(dataGridView);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnNhap);
+            Controls.Add(btnTimKiem);
             Controls.Add(btnThoat);
             Controls.Add(btnHuyBo);
             Controls.Add(btnLuu);
@@ -361,8 +363,8 @@
         private System.Windows.Forms.Button btnHuyBo;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridView dataGridView;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnTimKiem;
+        private Button btnNhap;
+        private Button btnXuat;
     }
 }

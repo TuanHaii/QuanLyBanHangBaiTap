@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace QuanLyBanHang.Forms
 {
     public partial class frmLoaiSanPham : Form
@@ -122,5 +121,6 @@ namespace QuanLyBanHang.Forms
                 Application.Exit();
             }
         }
+
     }
 }

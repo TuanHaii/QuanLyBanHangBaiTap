@@ -44,27 +44,24 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(56, 117);
-            label1.Margin = new Padding(6, 0, 6, 0);
+            label1.Location = new Point(30, 55);
             label1.Name = "label1";
-            label1.Size = new Size(208, 32);
+            label1.Size = new Size(103, 15);
             label1.TabIndex = 0;
             label1.Text = "Ten loai san pham";
             // 
             // txtTenLoai
             // 
-            txtTenLoai.Location = new Point(347, 111);
-            txtTenLoai.Margin = new Padding(6, 6, 6, 6);
+            txtTenLoai.Location = new Point(187, 52);
             txtTenLoai.Name = "txtTenLoai";
-            txtTenLoai.Size = new Size(1089, 39);
+            txtTenLoai.Size = new Size(588, 23);
             txtTenLoai.TabIndex = 1;
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(347, 194);
-            btnThem.Margin = new Padding(6, 6, 6, 6);
+            btnThem.Location = new Point(187, 91);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(139, 49);
+            btnThem.Size = new Size(75, 23);
             btnThem.TabIndex = 2;
             btnThem.Text = "Them";
             btnThem.UseVisualStyleBackColor = true;
@@ -72,10 +69,9 @@
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(542, 194);
-            btnSua.Margin = new Padding(6, 6, 6, 6);
+            btnSua.Location = new Point(292, 91);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(139, 49);
+            btnSua.Size = new Size(75, 23);
             btnSua.TabIndex = 3;
             btnSua.Text = "Sua";
             btnSua.UseVisualStyleBackColor = true;
@@ -83,10 +79,9 @@
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(737, 194);
-            btnXoa.Margin = new Padding(6, 6, 6, 6);
+            btnXoa.Location = new Point(397, 91);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(139, 49);
+            btnXoa.Size = new Size(75, 23);
             btnXoa.TabIndex = 4;
             btnXoa.Text = "Xoa";
             btnXoa.UseVisualStyleBackColor = true;
@@ -94,10 +89,9 @@
             // 
             // btnLuu
             // 
-            btnLuu.Location = new Point(919, 194);
-            btnLuu.Margin = new Padding(6, 6, 6, 6);
+            btnLuu.Location = new Point(495, 91);
             btnLuu.Name = "btnLuu";
-            btnLuu.Size = new Size(139, 49);
+            btnLuu.Size = new Size(75, 23);
             btnLuu.TabIndex = 5;
             btnLuu.Text = "Luu";
             btnLuu.UseVisualStyleBackColor = true;
@@ -105,10 +99,9 @@
             // 
             // btnHuyBo
             // 
-            btnHuyBo.Location = new Point(1118, 194);
-            btnHuyBo.Margin = new Padding(6, 6, 6, 6);
+            btnHuyBo.Location = new Point(602, 91);
             btnHuyBo.Name = "btnHuyBo";
-            btnHuyBo.Size = new Size(139, 49);
+            btnHuyBo.Size = new Size(75, 23);
             btnHuyBo.TabIndex = 6;
             btnHuyBo.Text = "Huy Bo";
             btnHuyBo.UseVisualStyleBackColor = true;
@@ -116,10 +109,9 @@
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(1300, 194);
-            btnThoat.Margin = new Padding(6, 6, 6, 6);
+            btnThoat.Location = new Point(700, 91);
             btnThoat.Name = "btnThoat";
-            btnThoat.Size = new Size(139, 49);
+            btnThoat.Size = new Size(75, 23);
             btnThoat.TabIndex = 7;
             btnThoat.Text = "Thoat";
             btnThoat.UseVisualStyleBackColor = true;
@@ -128,10 +120,9 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(56, 23);
-            label2.Margin = new Padding(6, 0, 6, 0);
+            label2.Location = new Point(30, 11);
             label2.Name = "label2";
-            label2.Size = new Size(229, 32);
+            label2.Size = new Size(114, 15);
             label2.TabIndex = 8;
             label2.Text = "Thong tin san pham";
             // 
@@ -140,19 +131,18 @@
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView.Location = new Point(56, 316);
-            dataGridView.Margin = new Padding(6, 6, 6, 6);
+            dataGridView.Location = new Point(30, 148);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 82;
-            dataGridView.Size = new Size(1384, 533);
+            dataGridView.Size = new Size(745, 250);
             dataGridView.TabIndex = 9;
             // 
             // frmLoaiSanPham
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1486, 960);
+            ClientSize = new Size(800, 450);
             Controls.Add(dataGridView);
             Controls.Add(label2);
             Controls.Add(btnThoat);
@@ -163,7 +153,6 @@
             Controls.Add(btnThem);
             Controls.Add(txtTenLoai);
             Controls.Add(label1);
-            Margin = new Padding(6, 6, 6, 6);
             Name = "frmLoaiSanPham";
             Text = "frmLoaiSanPham";
             Load += frmLoaiSanPham_Load;
