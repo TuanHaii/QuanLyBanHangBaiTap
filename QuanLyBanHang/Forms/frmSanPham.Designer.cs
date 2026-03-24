@@ -30,6 +30,7 @@
         {
             labelTitle = new Label();
             groupBoxThongTin = new GroupBox();
+            numDonGia = new NumericUpDown();
             labelPhanLoai = new Label();
             cboLoaiSanPham = new ComboBox();
             labelHangSX = new Label();
@@ -41,7 +42,6 @@
             labelSoLuong = new Label();
             numericSoLuong = new NumericUpDown();
             labelDonGia = new Label();
-            txtDonGia = new TextBox();
             pbHinhAnh = new PictureBox();
             btnDoiAnh = new Button();
             btnThem = new Button();
@@ -55,6 +55,7 @@
             btnNhap = new Button();
             btnXuat = new Button();
             groupBoxThongTin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numDonGia).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericSoLuong).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbHinhAnh).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -72,6 +73,7 @@
             // 
             // groupBoxThongTin
             // 
+            groupBoxThongTin.Controls.Add(numDonGia);
             groupBoxThongTin.Controls.Add(labelPhanLoai);
             groupBoxThongTin.Controls.Add(cboLoaiSanPham);
             groupBoxThongTin.Controls.Add(labelHangSX);
@@ -83,7 +85,6 @@
             groupBoxThongTin.Controls.Add(labelSoLuong);
             groupBoxThongTin.Controls.Add(numericSoLuong);
             groupBoxThongTin.Controls.Add(labelDonGia);
-            groupBoxThongTin.Controls.Add(txtDonGia);
             groupBoxThongTin.Controls.Add(pbHinhAnh);
             groupBoxThongTin.Controls.Add(btnDoiAnh);
             groupBoxThongTin.Location = new Point(12, 27);
@@ -92,6 +93,17 @@
             groupBoxThongTin.TabIndex = 1;
             groupBoxThongTin.TabStop = false;
             groupBoxThongTin.Text = "Thông tin sản phẩm";
+            // 
+            // numDonGia
+            // 
+            numDonGia.Location = new Point(460, 61);
+            numDonGia.Maximum = new decimal(new int[] { 1215752192, 23, 0, 0 });
+            numDonGia.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numDonGia.Name = "numDonGia";
+            numDonGia.Size = new Size(140, 23);
+            numDonGia.TabIndex = 14;
+            numDonGia.ThousandsSeparator = true;
+            numDonGia.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // labelPhanLoai
             // 
@@ -187,13 +199,6 @@
             labelDonGia.TabIndex = 10;
             labelDonGia.Text = "Đơn giá";
             // 
-            // txtDonGia
-            // 
-            txtDonGia.Location = new Point(460, 58);
-            txtDonGia.Name = "txtDonGia";
-            txtDonGia.Size = new Size(140, 23);
-            txtDonGia.TabIndex = 11;
-            // 
             // pbHinhAnh
             // 
             pbHinhAnh.BorderStyle = BorderStyle.FixedSingle;
@@ -212,6 +217,7 @@
             btnDoiAnh.TabIndex = 13;
             btnDoiAnh.Text = "Đổi ảnh...";
             btnDoiAnh.UseVisualStyleBackColor = true;
+            btnDoiAnh.Click += btnDoiAnh_Click;
             // 
             // btnThem
             // 
@@ -221,6 +227,7 @@
             btnThem.TabIndex = 2;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnSua
             // 
@@ -230,6 +237,7 @@
             btnSua.TabIndex = 3;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnXoa
             // 
@@ -239,6 +247,7 @@
             btnXoa.TabIndex = 4;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnLuu
             // 
@@ -248,6 +257,7 @@
             btnLuu.TabIndex = 5;
             btnLuu.Text = "Lưu";
             btnLuu.UseVisualStyleBackColor = true;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnHuyBo
             // 
@@ -257,6 +267,7 @@
             btnHuyBo.TabIndex = 6;
             btnHuyBo.Text = "Hủy bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
+            btnHuyBo.Click += btnHuyBo_Click;
             // 
             // btnThoat
             // 
@@ -331,6 +342,7 @@
             Load += frmSanPham_Load;
             groupBoxThongTin.ResumeLayout(false);
             groupBoxThongTin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numDonGia).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericSoLuong).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbHinhAnh).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
@@ -353,7 +365,6 @@
         private System.Windows.Forms.TextBox txtTenSanPham;
         private System.Windows.Forms.TextBox txtMoTa;
         private System.Windows.Forms.NumericUpDown numericSoLuong;
-        private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.PictureBox pbHinhAnh;
         private System.Windows.Forms.Button btnDoiAnh;
         private System.Windows.Forms.Button btnThem;
@@ -366,5 +377,6 @@
         private Button btnTimKiem;
         private Button btnNhap;
         private Button btnXuat;
+        private NumericUpDown numDonGia;
     }
 }
