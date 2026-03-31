@@ -226,8 +226,7 @@ namespace QuanLyBanHang.Forms
             statusLogin.Text = $"Nhân viên: {hoVaTenNhanVien}";
         }
 
-        private void ChuaDangNhap()
-        {
+        private void ChuaDangNhap(){
             mnuDangNhap.Enabled = true;
             mnuDangXuat.Enabled = false;
             mnuDoiMatKhau.Enabled = false;
